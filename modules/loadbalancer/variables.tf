@@ -44,3 +44,8 @@ variable "port_forwarding_rule" {
   type      = string
   default   = "80"     
 }
+
+variable "project_id" {
+  default = "prj-qa-workshop-poc"
+  type = string
+}
