@@ -45,5 +45,5 @@ resource "google_vpc_access_connector" "svpc-connector" {
   ip_cidr_range = var.vpc_connector_ip_cidr
   project       = var.vpc_connector_project
   region        = var.vpc_connector_location
-  project = var.project
+ 
 }
