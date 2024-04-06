@@ -14,6 +14,7 @@ resource "google_compute_region_network_endpoint_group" "serverless_neg" {
   name                  = var.neg_name
   network_endpoint_type = "SERVERLESS"
   region                = var.region
+  project = "prj-qa-workshop-poc"
 
   cloud_run {
     service = var.cloud_run_ref
