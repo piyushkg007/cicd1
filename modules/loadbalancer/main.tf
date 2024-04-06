@@ -26,12 +26,14 @@ resource "google_compute_url_map" "url_map" {
   provider        = google-beta
   name            = var.url_map_name
   default_service = google_compute_backend_service.default2.self_link
+  project = var.project_id
 }
 
 resource "google_compute_target_http_proxy" "http_proxy" {
   provider = google-beta
   name     = var.proxy_name
   url_map  = google_compute_url_map.url_map.self_link
+  project = var.project_id
 }
 
 resource "google_compute_global_forwarding_rule" "forwarding_rule" {
@@ -39,4 +41,5 @@ resource "google_compute_global_forwarding_rule" "forwarding_rule" {
   name       = var.forwarding_rule_name
   target     = google_compute_target_http_proxy.http_proxy.self_link
   port_range = var.port_forwarding_rule
+  project = var.project_id
 }

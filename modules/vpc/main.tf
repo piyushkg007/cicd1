@@ -2,11 +2,13 @@ resource "google_compute_network" "vpc-cr-lb" {
   name                    = var.network_name
   auto_create_subnetworks = true
   # routing_mode = "REGIONAL"
+  project = var.project
 }
 
 resource "google_compute_firewall" "allow-http7" {
   name    = "allow-http1"
   network = google_compute_network.vpc-cr-lb.name
+  project = var.project
 
   allow {
     protocol = "tcp"
@@ -19,6 +21,7 @@ resource "google_compute_firewall" "allow-http7" {
 resource "google_compute_firewall" "allow-https7" {
   name    = "allow-https1"
   network = google_compute_network.vpc-cr-lb.name
+  project = var.project
 
   allow {
     protocol = "tcp"
@@ -33,6 +36,7 @@ resource "google_compute_subnetwork" "vpc-sub77" {
   ip_cidr_range = var.subnetwork_ip_cidr
   region        = var.region
   network       = google_compute_network.vpc-cr-lb.id
+  project = var.project
 }
 
 resource "google_vpc_access_connector" "svpc-connector" {
@@ -41,4 +45,5 @@ resource "google_vpc_access_connector" "svpc-connector" {
   ip_cidr_range = var.vpc_connector_ip_cidr
   project       = var.vpc_connector_project
   region        = var.vpc_connector_location
+  project = var.project
 }

@@ -64,3 +64,7 @@ variable "https_port" {
   default     = "443"
 }
 
+variable "project" {
+  default = "prj-qa-workshop-poc"
+  type = string
+}
