@@ -28,7 +28,7 @@ resource "google_cloud_run_v2_service" "default" {
       ports {
         container_port = var.frontend_container_port
       }
-      image = "us-central1-docker.pkg.dev/prj-qa-workshop-poc/piyush-repo/front-end:latest"
+      image = var.cloud_run_frontend_image
     }
     vpc_access {
 
