@@ -57,5 +57,6 @@ resource "google_cloud_run_service_iam_policy" "noauth_backend" {
   project     = google_cloud_run_v2_service.default2.project
   service     = google_cloud_run_v2_service.default2.name
   policy_data = data.google_iam_policy.noauth.policy_data
+  #
 }
 
