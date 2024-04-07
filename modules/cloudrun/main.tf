@@ -10,7 +10,7 @@ resource "google_cloud_run_v2_service" "default2" {
       ports {
         container_port = var.backend_container_port
       }
-      image = var.cloud_run_backend_image
+      image = "us-central1-docker.pkg.dev/prj-qa-workshop-poc/piyush-repo/backend:latest"
     }
   }
 }
@@ -28,7 +28,7 @@ resource "google_cloud_run_v2_service" "default" {
       ports {
         container_port = var.frontend_container_port
       }
-      image = var.cloud_run_frontend_image
+      image = "us-central1-docker.pkg.dev/prj-qa-workshop-poc/piyush-repo/front-end:latest"
     }
     vpc_access {
 
