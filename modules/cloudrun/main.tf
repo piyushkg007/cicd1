@@ -28,7 +28,7 @@ resource "google_cloud_run_v2_service" "default" {
       ports {
         container_port = var.frontend_container_port
       }
-      image = cloud_run_frontend_image
+      image = var.cloud_run_frontend_image
     }
     vpc_access {
 
