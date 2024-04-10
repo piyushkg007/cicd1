@@ -6,7 +6,19 @@
 trigger:
   branches:
     include:
-      - main
+      - "*"
+  paths:
+    include:
+      - modules/cloudrun/main.tf
+resources:
+ pipelines:
+   - pipeline: "Backend_app"
+     source: "piyushkg007.Backend_app"
+     trigger: true
+    
+   - pipeline: "Frontend_app"
+     source: "piyushkg007.Frontend_app"
+     trigger: true
 
 pool: default
   
@@ -37,4 +49,5 @@ steps:
       
 
   displayName: 'for init'
+
 
