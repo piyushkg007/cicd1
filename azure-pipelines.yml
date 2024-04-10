@@ -6,7 +6,7 @@
 trigger:
   branches:
     include:
-      - main
+      - "*"
   paths:
     include:
       - modules/cloudrun/main.tf
