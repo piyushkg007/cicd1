@@ -45,9 +45,25 @@ steps:
   displayName: 'for plan'
 
 - script: |
+   - task: InfracostSetup@2
+        inputs:
+          version: '0.10.x'
+          apiKey: ico-zXXSlnyFuzqgD0IzsAvjsV3dD5Cwmjgz
+  
+      
+
+  displayName: 'for infracost'
+
+- script: |
+    infracost breakdown --path .  
+      
+
+  displayName: 'for cost'
+
+- script: |
     terraform apply -auto-approve  
       
 
-  displayName: 'for init'
+  displayName: 'for plan'
 
 
